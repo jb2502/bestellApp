@@ -1,0 +1,26 @@
+header img {
+    height: 80%;
+}
+
+figure img {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.main-menu-img img {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.add-basket-icon {
+    height: 44px;
+    width: 44px;
+    border: 2px solid lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+}
