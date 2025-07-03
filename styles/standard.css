@@ -11,7 +11,7 @@
 
 ::-webkit-scrollbar {
     width: 10px;
-    background-color: lightgray;
+    
 }
 
 ::-webkit-scrollbar-button {
@@ -81,7 +81,7 @@ a {
 }
 
 a:hover {
-    transform: scale(1.05, 1.05)
+    transform: scale3d(1.05, 1.05, 1.05)
 }
 
 .menu-nav {
