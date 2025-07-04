@@ -93,6 +93,20 @@ button:active {
     transform: scale3d(0.99, 0.99, 0.99)
 }
 
-/* .d-none{
+.d-none {
     display: none;
-} */
+}
+
+.empty-basket {
+    color: #aaaaaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.empty-basket img {
+    height: 100px;
+    width: 100px;
+}
