@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="./styles/basket.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/standard.css">
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/template.js"></script>
 </head>
 
 <body>
@@ -37,7 +39,7 @@
                 <h3>Hauptgerichte</h3>
             </section>
             <section class="main-dishes">
-                <div class="main-dish">
+                <div onclick="addBasket(0)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Gimbap</h3>
@@ -53,7 +55,7 @@
                         <strong>9,90 €</strong>
                     </div>
                 </div>
-                <div class="main-dish">
+                <div onclick="addBasket(1)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Ramyeon</h3>
@@ -69,7 +71,7 @@
                         <strong>10,90 €</strong>
                     </div>
                 </div>
-                <div class="main-dish">
+                <div onclick="addBasket(2)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Mandu</h3>
@@ -85,7 +87,7 @@
                         <strong>5,50 €</strong>
                     </div>
                 </div>
-                <div class="main-dish">
+                <div onclick="addBasket(3)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Rabokki</h3>
@@ -109,7 +111,7 @@
                 <h3>Getränke</h3>
             </section>
             <section class="main-dishes">
-                <div class="main-dish">
+                <div onclick="addBasket(4)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Sikhye</h3>
@@ -125,7 +127,7 @@
                         <strong>6,90 €</strong>
                     </div>
                 </div>
-                <div class="main-dish">
+                <div onclick="addBasket(5)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Milkis</h3>
@@ -141,7 +143,7 @@
                         <strong>4,90 €</strong>
                     </div>
                 </div>
-                <div class="main-dish">
+                <div onclick="addBasket(6)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Soju</h3>
@@ -157,7 +159,7 @@
                         <strong>5,50 €</strong>
                     </div>
                 </div>
-                <div class="main-dish">
+                <div onclick="addBasket(7)" class="main-dish">
                     <div class="dish-headline">
                         <div>
                             <h3>Makgeolli</h3>
@@ -180,65 +182,19 @@
                 <div class="basket-headline">
                     <h3>Warenkorb</h3>
                 </div>
-                <div class="empty-basket">
+                <div id="empty-basket" class="empty-basket">
                     <img src="./assets/icons/shopping_cart_off.png" alt="off">
                     Dein Warenkorb ist leer.
                 </div>
-                <div class="d-none">
-                    <div>
-                        <div class="basket-under-headline">
-                            <strong>Gimbap</strong>
-                        </div>
-                        <div class="choose-basket">
-                            <div class="added-dish">
-                                <div><img src="./assets/icons/remove_shopping_cart.png" alt="remove"></div>
-                                <div style="width: 30px; text-align: center;">20x</div>
-                                <div><img src="./assets/icons/add_shopping_cart.png" alt="add"></div>
-                            </div>
-                            <div>9,90 €</div>
-                            <div><img src="./assets/icons/delete.png" alt="delete"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="basket-under-headline">
-                            <strong>Rabokki</strong>
-                        </div>
-                        <div class="choose-basket">
-                            <div class="added-dish">
-                                <div><img src="./assets/icons/remove_shopping_cart.png" alt="remove"></div>
-                                <div style="width: 30px; text-align: center;">20x</div>
-                                <div><img src="./assets/icons/add_shopping_cart.png" alt="add"></div>
-                            </div>
-                            <div style="width: 60px;">12,90 €</div>
-                            <div><img src="./assets/icons/delete.png" alt="delete"></div>
-                        </div>
-                    </div>
-                    <div class="separator-container"></div>
-                    <div class="costs">
-                        <div>Zwischensumme:</div>
-                        <div>X,XX €</div>
-                    </div>
-                    <div class="costs">
-                        <div>Lieferkosten:</div>
-                        <div>X,XX €</div>
-                    </div>
-                    <div class="costs">
-                        <div><strong>Gesamtsumme:</strong></div>
-                        <div><strong>X,XX €</strong></div>
-                    </div>
-                    <div class="btn-container">
-                        <button>Bestellen <img src="./assets/icons/shopping_cart_checkout.png" alt="checkout"></button>
-                    </div>
+                <div id="basket" class="d-none">
+                    
+
+
                 </div>
 
-
-            </div>
-        </div>
-
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>

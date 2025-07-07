@@ -94,7 +94,7 @@ button:active {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .empty-basket {
