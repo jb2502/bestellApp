@@ -1,7 +1,6 @@
 let basket = [];
 
-
-
+let deliveryCharge = 5;
 
 //warenkorb hinzufügen
 function addBasket(index) {
@@ -15,6 +14,8 @@ function addBasket(index) {
         }
         basket.push(dish);
         renderFullBasket();
+        subTotal();
+        finalPrice();
 
         //wird ausgefürht wenn schon etwas im basket drin ist
     } else {
@@ -36,6 +37,8 @@ function addBasket(index) {
         }
     }
     renderBasket();
+    subTotal();
+    finalPrice();
 }
 
 function renderFullBasket() {
@@ -45,6 +48,7 @@ function renderFullBasket() {
     for (let index = 0; index < basket.length; index++) {
         refContentFullBasket.innerHTML = getTemplateFullBasket(index)
     }
+
 }
 
 function renderBasket() {
@@ -58,7 +62,9 @@ function renderBasket() {
 //anzahl bestellung vergrößern
 function additionalBasket(basketIndex) {
     basket[basketIndex].amount++;
-    renderBasket()
+    renderBasket();
+    subTotal();
+    finalPrice();
 }
 
 //anzahl bestellung verringern
@@ -67,27 +73,69 @@ function removeBasket(basketIndex) {
     if (basket[basketIndex].amount === 0) {
         basket.splice(basketIndex, 1);
         if (basket.length === 0) {
-            let refContentBasket = document.getElementById('added-dish');
-            refContentBasket.innerHTML = "";
-            let refContentFullBasket = document.getElementById('basket');
-            refContentFullBasket.classList.add('d-none'); //blendet den warenkorb wieder
-            refContentFullBasket.innerHTML = "";
-            document.getElementById('empty-basket').classList.remove('d-none'); //blendet den leeren warenkorb wieder aus
+            renderEmptyBasket()
         }
 
     }
-    renderBasket()
+    renderBasket();
+    subTotal();
+    finalPrice();
 }
 //bestellung löschen
 function deleteBasket(basketIndex) {
     basket.splice(basketIndex, 1)
     if (basket.length === 0) {
-        let refContentBasket = document.getElementById('added-dish');
-        refContentBasket.innerHTML = "";
-        let refContentFullBasket = document.getElementById('basket');
-        refContentFullBasket.classList.add('d-none'); //blendet den warenkorb wieder
-        refContentFullBasket.innerHTML = "";
-        document.getElementById('empty-basket').classList.remove('d-none'); //blendet den leeren warenkorb wieder aus
+        renderEmptyBasket()
     }
-    renderBasket()
+    renderBasket();
+    subTotal();
+    finalPrice();
+}
+
+//bestellung abschicken
+function sendDelivery() {
+    while (basket.length > 0) {
+        basket.pop();
+        renderBasket()
+        if (basket.length === 0) {
+            renderEmptyBasket()
+        }
+    }
+}
+
+function renderEmptyBasket() {
+    let refContentBasket = document.getElementById('added-dish');
+    refContentBasket.innerHTML = "";
+    let refContentFullBasket = document.getElementById('basket');
+    refContentFullBasket.classList.add('d-none'); //blendet den warenkorb wieder
+    refContentFullBasket.innerHTML = "";
+    document.getElementById('empty-basket').classList.remove('d-none'); //blendet den leeren warenkorb wieder aus
+}
+
+function subTotal() {
+    let totalSub = 0;
+    for (let index = 0; index < basket.length; index++) {
+        let amount = basket[index].amount;
+        let price = basket[index].price;
+
+        totalSub += amount * price;
+    }
+    let newTotalSub = totalSub;
+    let refContentSubTotal = document.getElementById("sub-total");
+    refContentSubTotal.innerHTML = `${newTotalSub.toFixed(2).replace(".", ",")} €`;
+    return
+}
+
+function finalPrice() {
+    let totalSub = 0;
+    for (let index = 0; index < basket.length; index++) {
+        let amount = basket[index].amount;
+        let price = basket[index].price;
+
+        totalSub += amount * price;
+    }
+    let finalAmount = totalSub + deliveryCharge;
+    let refContentSubTotal = document.getElementById("final-total");
+    refContentSubTotal.innerHTML = `${finalAmount.toFixed(2).replace(".", ",")} €`;
+    return
 }

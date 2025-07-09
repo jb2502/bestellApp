@@ -19,18 +19,18 @@ function getTemplateFullBasket(index) {
                         <div class="separator-container"></div>
                         <div class="costs">
                             <div>Zwischensumme:</div>
-                            <div>X,XX €</div>
+                            <div id="sub-total">X,XX €</div>
                         </div>
                         <div class="costs">
                             <div>Lieferkosten:</div>
-                            <div>X,XX €</div>
+                            <div>${deliveryCharge.toFixed(2).replace(".", ",")} €</div>
                         </div>
                         <div class="costs">
                             <div><strong>Gesamtsumme:</strong></div>
-                            <div><strong>X,XX €</strong></div>
+                            <div><strong id="final-total">X,XX €</strong></div>
                         </div>
                         <div class="btn-container">
-                            <button>Bestellen <img src="./assets/icons/shopping_cart_checkout.png"
+                            <button onclick="sendDelivery()">Bestellen <img src="./assets/icons/shopping_cart_checkout.png"
                                     alt="checkout"></button>
                         </div>
                     </div>`
