@@ -180,6 +180,10 @@ a:hover {
     color: #ffffff;
 }
 
+.hide-scrollbar {
+  overflow-y: hidden;
+}
+
 .move {
     width: 320px;
     position: relative;
