@@ -8,7 +8,12 @@ function addBasket(index) {
 
     //es wird geschaut, ob schon etwas vorhanden ist, wenn nicht, dann wird es der basket variable hinzugefügt
     if (basket.length === 0) {
-        basket.push(myDishes[index]);
+        let dish = {
+            name: myDishes[index].name,
+            price: myDishes[index].price,
+            amount: myDishes[index].amount
+        }
+        basket.push(dish);
         renderFullBasket();
 
         //wird ausgefürht wenn schon etwas im basket drin ist
@@ -22,8 +27,12 @@ function addBasket(index) {
 
             //wenn das dish noch nicht vorhanden ist, dannn wird es dem basket hinzugefügt
         } else {
-            basket.push(myDishes[index]);
-
+            let dish = {
+                name: myDishes[index].name,
+                price: myDishes[index].price,
+                amount: myDishes[index].amount
+            }
+            basket.push(dish);
         }
     }
     renderBasket();
@@ -72,8 +81,6 @@ function removeBasket(basketIndex) {
 //bestellung löschen
 function deleteBasket(basketIndex) {
     basket.splice(basketIndex, 1)
-    console.log(basket.splice(basketIndex, 1));
-
     if (basket.length === 0) {
         let refContentBasket = document.getElementById('added-dish');
         refContentBasket.innerHTML = "";
