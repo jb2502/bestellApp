@@ -7,6 +7,8 @@
 
 :root {
     --padding-main: 0 20px;
+    --dialog-width: 360px;
+    --dialog-height: 160px;
 }
 
 ::-webkit-scrollbar {
@@ -138,4 +140,57 @@ a:hover {
     margin: 4px 0;
     padding: 4px;
     color: #F08832;
+}
+
+.overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.dialog {
+    position: absolute;
+    top: calc(50% - var(--dialog-height)/2);
+    left: calc(50% - var(--dialog-width)/2);
+    height: var(--dialog-height);
+    width: var(--dialog-width);
+    background-color: rgb(255, 255, 255);
+    z-index: 2;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pop-up-button {
+    margin: 8px;
+    padding: 8px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #F08832;
+    border: none;
+    color: #ffffff;
+}
+
+.move {
+    width: 320px;
+    position: relative;
+    animation: mymove 4s 99;
+}
+
+@keyframes mymove {
+    0% {
+        left: 0px;
+    }
+    100% {
+        left: 280px;
+    }
 }

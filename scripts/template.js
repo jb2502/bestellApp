@@ -50,3 +50,14 @@ function getTemplateBasket(index) {
                             <div onclick="deleteBasket(${index})"><img src="./assets/icons/delete.png" alt="delete"></div>
                         </div>`
 }
+
+//overlay
+function getOverlayTemplate() {
+    return `<div onclick="event.stopPropagation()" class="dialog">
+            <strong style="margin-bottom: 8px;">Ihre Bestellung ist unterwegs!</strong>
+            <div class="move">
+                <img class="add-basket" src="./assets/icons/delivery_truck_speed.png" alt="">
+            </div>
+            <button onclick="closeOverlay()" class="pop-up-button">Schließen</button>
+        </div>`;
+}

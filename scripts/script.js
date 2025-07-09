@@ -37,10 +37,9 @@ function addBasket(index) {
         }
     }
     renderBasket();
-    subTotal();
-    finalPrice();
+    price();
 }
-
+//rendert beim ersten hinzufügen den kompletten warenkorb
 function renderFullBasket() {
     document.getElementById('empty-basket').classList.add('d-none'); //blendet den leeren warenkorb aus
     let refContentFullBasket = document.getElementById('basket');
@@ -50,7 +49,7 @@ function renderFullBasket() {
     }
 
 }
-
+//rendert den warenkorb
 function renderBasket() {
     let refContentBasket = document.getElementById('added-dish');
     refContentBasket.innerHTML = "";
@@ -58,15 +57,12 @@ function renderBasket() {
         refContentBasket.innerHTML += getTemplateBasket(index)
     }
 }
-
 //anzahl bestellung vergrößern
 function additionalBasket(basketIndex) {
     basket[basketIndex].amount++;
     renderBasket();
-    subTotal();
-    finalPrice();
+    price();
 }
-
 //anzahl bestellung verringern
 function removeBasket(basketIndex) {
     basket[basketIndex].amount--;
@@ -78,8 +74,7 @@ function removeBasket(basketIndex) {
 
     }
     renderBasket();
-    subTotal();
-    finalPrice();
+    price();
 }
 //bestellung löschen
 function deleteBasket(basketIndex) {
@@ -88,10 +83,8 @@ function deleteBasket(basketIndex) {
         renderEmptyBasket()
     }
     renderBasket();
-    subTotal();
-    finalPrice();
+    price();
 }
-
 //bestellung abschicken
 function sendDelivery() {
     while (basket.length > 0) {
@@ -101,8 +94,9 @@ function sendDelivery() {
             renderEmptyBasket()
         }
     }
+    openOverlay()
 }
-
+//funktion zum zurückstellen aus leeren warenkorb
 function renderEmptyBasket() {
     let refContentBasket = document.getElementById('added-dish');
     refContentBasket.innerHTML = "";
@@ -111,7 +105,12 @@ function renderEmptyBasket() {
     refContentFullBasket.innerHTML = "";
     document.getElementById('empty-basket').classList.remove('d-none'); //blendet den leeren warenkorb wieder aus
 }
-
+//führt alle funktionen zur preiserrechnung zusammen
+function price() {
+    subTotal();
+    finalPrice();
+}
+//errechnen zwischensumme
 function subTotal() {
     let totalSub = 0;
     for (let index = 0; index < basket.length; index++) {
@@ -125,7 +124,7 @@ function subTotal() {
     refContentSubTotal.innerHTML = `${newTotalSub.toFixed(2).replace(".", ",")} €`;
     return
 }
-
+//errechnen gesamtpreis
 function finalPrice() {
     let totalSub = 0;
     for (let index = 0; index < basket.length; index++) {
@@ -138,4 +137,21 @@ function finalPrice() {
     let refContentSubTotal = document.getElementById("final-total");
     refContentSubTotal.innerHTML = `${finalAmount.toFixed(2).replace(".", ",")} €`;
     return
+}
+//öffnet das overlay
+function openOverlay() {
+    let refOverlay = document.getElementById("overlay");
+    let hideScrollbar = document.getElementById("body-scrollbar");
+    hideScrollbar.classList.add("hide-scrollbar");
+    refOverlay.classList.remove("d-none");
+    refOverlay.innerHTML = getOverlayTemplate();
+
+}
+
+//schließt das overlay
+function closeOverlay() {
+    let closeOverlay = document.getElementById("overlay");
+    let hideScrollbar = document.getElementById("body-scrollbar");
+    hideScrollbar.classList.remove("hide-scrollbar");
+    closeOverlay.classList.add("d-none");
 }
