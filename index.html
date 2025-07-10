@@ -15,9 +15,11 @@
 </head>
 
 <body id="body-scrollbar">
+
     <div onclick="closeOverlay()" id="overlay" class="overlay d-none">
-        
+
     </div>
+
     <header>
         <img src="./assets/img/Bestell App- Logo.svg" alt="Logo">
     </header>
@@ -163,7 +165,9 @@
                     </div>
                 </div>
             </section>
+
         </div>
+        <div class="basket-button">Warenkorb</div>
         <div class="basket-wrapper">
             <div class="basket">
                 <div class="basket-headline">
@@ -175,9 +179,22 @@
                 </div>
                 <div id="basket" class="d-none"></div>
 
+
     </main>
-    <footer></footer>
-    <script src="./scripts/script.js"></script>
+    <div class="respon-basket">
+        <div class="resp-basket">
+            <div class="resp-basket-headline">
+                <h3>Warenkorb</h3>
+            </div>
+            <div id="empty-resp-basket" class="resp-empty-basket">
+                <img src="./assets/icons/shopping_cart_off.png" alt="off">
+                Dein Warenkorb ist leer.
+            </div>
+            <div id="resp-basket" class="d-none"></div>
+        </div>
+        <footer></footer>
+
+        <script src="./scripts/script.js"></script>
 </body>
 
 </html>

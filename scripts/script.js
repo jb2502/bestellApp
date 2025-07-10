@@ -42,10 +42,15 @@ function addBasket(index) {
 //rendert beim ersten hinzufügen den kompletten warenkorb
 function renderFullBasket() {
     document.getElementById('empty-basket').classList.add('d-none'); //blendet den leeren warenkorb aus
+    document.getElementById('empty-resp-basket').classList.add('d-none'); //blendet den leeren warenkorb aus
     let refContentFullBasket = document.getElementById('basket');
     refContentFullBasket.classList.remove('d-none'); //blendet den warenkorb ein
+    document.getElementById('empty-basket').classList.add('d-none'); //blendet den leeren warenkorb aus
+    let refContentFullRespBasket = document.getElementById('resp-basket');
+    refContentFullRespBasket.classList.remove('d-none'); //blendet den warenkorb ein
     for (let index = 0; index < basket.length; index++) {
         refContentFullBasket.innerHTML = getTemplateFullBasket(index)
+        refContentFullRespBasket.innerHTML = getTemplateFullRespBasket(index)
     }
 
 }
@@ -53,8 +58,11 @@ function renderFullBasket() {
 function renderBasket() {
     let refContentBasket = document.getElementById('added-dish');
     refContentBasket.innerHTML = "";
+    let refContentRespBasket = document.getElementById('added-dish-resp');
+    refContentRespBasket.innerHTML = "";
     for (let index = 0; index < basket.length; index++) {
         refContentBasket.innerHTML += getTemplateBasket(index)
+        refContentRespBasket.innerHTML += getTemplateBasket(index)
     }
 }
 //anzahl bestellung vergrößern
@@ -104,6 +112,13 @@ function renderEmptyBasket() {
     refContentFullBasket.classList.add('d-none'); //blendet den warenkorb wieder
     refContentFullBasket.innerHTML = "";
     document.getElementById('empty-basket').classList.remove('d-none'); //blendet den leeren warenkorb wieder aus
+
+    let refContentRespBasket = document.getElementById('added-dish-resp');
+    refContentRespBasket.innerHTML = "";
+    let refContentFullRespBasket = document.getElementById('resp-basket');
+    refContentFullRespBasket.classList.remove('d-none'); //blendet den warenkorb ein
+    refContentFullRespBasket.innerHTML = "";
+    document.getElementById('empty-resp-basket').classList.remove('d-none'); //blendet den leeren warenkorb aus
 }
 //führt alle funktionen zur preiserrechnung zusammen
 function price() {
@@ -122,6 +137,8 @@ function subTotal() {
     let newTotalSub = totalSub;
     let refContentSubTotal = document.getElementById("sub-total");
     refContentSubTotal.innerHTML = `${newTotalSub.toFixed(2).replace(".", ",")} €`;
+    let refContentRespSubTotal = document.getElementById("sub-total-resp");
+    refContentRespSubTotal.innerHTML = `${newTotalSub.toFixed(2).replace(".", ",")} €`;
     return
 }
 //errechnen gesamtpreis
@@ -136,6 +153,8 @@ function finalPrice() {
     let finalAmount = totalSub + deliveryCharge;
     let refContentSubTotal = document.getElementById("final-total");
     refContentSubTotal.innerHTML = `${finalAmount.toFixed(2).replace(".", ",")} €`;
+    let refContentRespSubTotal = document.getElementById("final-total-resp");
+    refContentRespSubTotal.innerHTML = `${finalAmount.toFixed(2).replace(".", ",")} €`;
     return
 }
 //öffnet das overlay
@@ -147,11 +166,15 @@ function openOverlay() {
     refOverlay.innerHTML = getOverlayTemplate();
 
 }
-
 //schließt das overlay
 function closeOverlay() {
     let closeOverlay = document.getElementById("overlay");
     let hideScrollbar = document.getElementById("body-scrollbar");
     hideScrollbar.classList.remove("hide-scrollbar");
     closeOverlay.classList.add("d-none");
+}
+//zeigt den warenkorb im responsive
+function showBasket() {
+    let showHideBasket = document.getElementById("respon-basket");
+    showHideBasket.classList.toggle("d-none")
 }

@@ -56,6 +56,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    position: relative;
 }
 
 section {
@@ -77,6 +78,7 @@ nav {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    position: relative;
 }
 
 text {
@@ -101,6 +103,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
 }
 
 .main-dish {
@@ -147,7 +150,7 @@ a:hover {
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 2;
+    z-index: 99;
 }
 
 .dialog {
@@ -157,7 +160,7 @@ a:hover {
     height: var(--dialog-height);
     width: var(--dialog-width);
     background-color: rgb(255, 255, 255);
-    z-index: 2;
+    z-index: 99;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -181,20 +184,51 @@ a:hover {
 }
 
 .hide-scrollbar {
-  overflow-y: hidden;
+    overflow-y: hidden;
 }
 
 .move {
-    width: 320px;
+    width: 90%;
     position: relative;
-    animation: mymove 4s 99;
+    animation: mymove 4s infinite;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes mymove {
     0% {
         left: 0px;
     }
+
     100% {
-        left: 280px;
+        left: calc(90% - 44px);
     }
+}
+
+.basket-button {
+    position: fixed;
+    bottom: 100px;
+    left: calc(50% - 200px/2);
+    height: 60px;
+    width: 200px;
+    z-index: 50;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #F08832;
+}
+
+
+
+@media (max-width: 910px) {
+    .basket-wrapper {
+        display: none;
+
+    }
+
+
 }
