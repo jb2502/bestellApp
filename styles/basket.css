@@ -142,8 +142,18 @@ button:active {
     cursor: pointer;
 }
 
-.basket-button:active{
-     transform: scale3d(0.99, 0.99, 0.99)
+.basket-button:active {
+    transform: scale3d(0.99, 0.99, 0.99)
+}
+
+.basket-down-btn {
+    padding: 4px;
+    height: 32px;
+    width: 32px;
+}
+
+.basket-down-btn:active {
+    transform: scale3d(0.99, 0.99, 0.99)
 }
 
 @media (min-width: 910px) {
@@ -151,10 +161,16 @@ button:active {
         display: none;
     }
 
+    .basket-down-btn {
+        display: none;
+    }
+
+
 }
 
 @media (max-width: 910px) {
     .basket-wrapper {
+        max-height: 100vh;
         position: fixed;
         width: 100%;
         bottom: 0;
@@ -195,18 +211,14 @@ button:active {
         padding: 12px 8px;
     }
 
-    button {
-        border-radius: 999px;
+    .btn-container {
         display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 220px;
-        font-size: 20px;
-        font-weight: bold;
-        background-color: #F08832;
-        border: none;
-        color: #ffffff;
+        flex-direction: column;
         margin-bottom: 12px;
+    }
+
+    button {
+        width: 220px;
     }
 
     .choose-basket {

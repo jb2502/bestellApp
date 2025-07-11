@@ -7,10 +7,10 @@ function getTemplateFullBasket(index) {
                         <div class="choose-basket">
                             <div class="added-dish">
                                 <div onclick="removeBasket(${index})"><img src="./assets/icons/remove_shopping_cart.png" alt="remove"></div>
-                                <div style="width=auto;"id="amount">${basket[index].amount}x</div>
-                                <div onclick="additionalBasket(${index}))"><img src="./assets/icons/add_shopping_cart.png" alt="add"></div>
+                                <div style="width: auto;"id="amount">${basket[index].amount}x</div>
+                                <div onclick="additionalBasket(${index})"><img src="./assets/icons/add_shopping_cart.png" alt="add"></div>
                             </div>
-                            <div style="width=auto;">${(basket[index].price * basket[index].amount).toFixed(2).replace(".", ",")} €</div>
+                            <div style="width: auto;">${(basket[index].price * basket[index].amount).toFixed(2).replace(".", ",")} €</div>
                             <div onclick="deleteBasket(${index})"><img src="./assets/icons/delete.png" alt="delete"></div>
                         </div>
                     </div>
@@ -31,6 +31,8 @@ function getTemplateFullBasket(index) {
                         <div class="btn-container">
                             <button onclick="sendDelivery()">Bestellen <img src="./assets/icons/shopping_cart_checkout.png"
                                     alt="checkout"></button>
+                                    <div class="basket-down-btn" onclick="closeBasket()"><img src="./assets/icons/arrow_circle_down.svg"
+                                    alt="down"></div>
                         </div>
                     </div>`
 }
@@ -42,10 +44,10 @@ function getTemplateBasket(index) {
                         <div class="choose-basket">
                             <div class="added-dish">
                                 <div onclick="removeBasket(${index})"><img src="./assets/icons/remove_shopping_cart.png" alt="remove"></div>
-                                <div style="width=auto;"id="amount">${basket[index].amount}x</div>
+                                <div style="width: auto;"id="amount">${basket[index].amount}x</div>
                                 <div onclick="additionalBasket(${index})"><img src="./assets/icons/add_shopping_cart.png" alt="add"></div>
                             </div>
-                            <div style="width=auto;">${(basket[index].price * basket[index].amount).toFixed(2).replace(".", ",")} €</div>
+                            <div style="width: auto;">${(basket[index].price * basket[index].amount).toFixed(2).replace(".", ",")} €</div>
                             <div onclick="deleteBasket(${index})"><img src="./assets/icons/delete.png" alt="delete"></div>
                         </div>`
 }
