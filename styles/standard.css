@@ -6,14 +6,13 @@
 }
 
 :root {
-    --padding-main: 0 20px;
+    --padding-main: 0 300px;
     --dialog-width: 360px;
     --dialog-height: 160px;
 }
 
 ::-webkit-scrollbar {
     width: 10px;
-
 }
 
 ::-webkit-scrollbar-button {
@@ -150,7 +149,7 @@ a:hover {
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 99;
+    z-index: 2;
 }
 
 .dialog {
@@ -160,7 +159,7 @@ a:hover {
     height: var(--dialog-height);
     width: var(--dialog-width);
     background-color: rgb(255, 255, 255);
-    z-index: 99;
+    z-index: 2;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -183,15 +182,10 @@ a:hover {
     color: #ffffff;
 }
 
-.hide-scrollbar {
-    overflow-y: hidden;
-}
-
 .move {
-    width: 90%;
+    width: 320px;
     position: relative;
     animation: mymove 4s infinite;
-    animation-timing-function: ease-in-out;
 }
 
 @keyframes mymove {
@@ -204,31 +198,56 @@ a:hover {
     }
 }
 
-.basket-button {
-    position: fixed;
-    bottom: 100px;
-    left: calc(50% - 200px/2);
-    height: 60px;
-    width: 200px;
-    z-index: 50;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    border-radius: 999px;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #F08832;
+@media (max-width: 1440px) {
+    :root {
+        --padding-main: 0 200px;
+    }
 }
 
-
-
-@media (max-width: 910px) {
-    .basket-wrapper {
-        display: none;
-
+@media (max-width: 1300px) {
+    :root {
+        --padding-main: 0 100px;
     }
+}
 
+@media (max-width: 1000px) {
+    :root {
+        --padding-main: 0 40px;
+    }
+}
 
+@media (max-width: 740px) {
+    :root {
+        --padding-main: 0 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    :root {
+        --padding-main: 0 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --padding-main: 0 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    :root {
+        --padding-main: 0 40px;
+    }
+}
+
+@media (max-width: 450px) {
+    :root {
+        --padding-main: 0 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    :root {
+        --padding-main: 0 10px;
+    }
 }
