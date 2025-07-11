@@ -107,11 +107,6 @@ function renderEmptyBasket() {
 }
 //führt alle funktionen zur preiserrechnung zusammen
 function price() {
-    subTotal();
-    finalPrice();
-}
-//errechnen zwischensumme
-function subTotal() {
     let totalSub = 0;
     for (let index = 0; index < basket.length; index++) {
         let amount = basket[index].amount;
@@ -121,20 +116,9 @@ function subTotal() {
     let newTotalSub = totalSub;
     let refContentSubTotal = document.getElementById("sub-total");
     refContentSubTotal.innerHTML = `${newTotalSub.toFixed(2).replace(".", ",")} €`;
-    return
-}
-//errechnen gesamtpreis
-function finalPrice() {
-    let totalSub = 0;
-    for (let index = 0; index < basket.length; index++) {
-        let amount = basket[index].amount;
-        let price = basket[index].price;
-        totalSub += amount * price;
-    }
-    let finalAmount = totalSub + deliveryCharge;
-    let refContentSubTotal = document.getElementById("final-total");
-    refContentSubTotal.innerHTML = `${finalAmount.toFixed(2).replace(".", ",")} €`;
-    return
+    let finalAmount = newTotalSub + deliveryCharge;
+    let refContentTotal = document.getElementById("final-total");
+    refContentTotal.innerHTML = `${finalAmount.toFixed(2).replace(".", ",")} €`;
 }
 //öffnet das overlay
 function openOverlay() {
@@ -144,7 +128,6 @@ function openOverlay() {
     refOverlay.classList.remove("d-none");
     refOverlay.innerHTML = getOverlayTemplate();
     document.getElementById("resp-basket").classList.toggle("active", false)
-
 }
 //schließt das overlay
 function closeOverlay() {
@@ -153,10 +136,11 @@ function closeOverlay() {
     hideScrollbar.classList.remove("hide-scrollbar");
     closeOverlay.classList.add("d-none");
 }
+//opens the responsive basket
 function openBasket() {
     document.getElementById("resp-basket").classList.toggle("active", true)
 }
-
+//opecloses the responsive basket
 function closeBasket() {
     document.getElementById("resp-basket").classList.toggle("active", false)
 }

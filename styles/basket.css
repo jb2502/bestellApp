@@ -164,8 +164,6 @@ button:active {
     .basket-down-btn {
         display: none;
     }
-
-
 }
 
 @media (max-width: 910px) {
