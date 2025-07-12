@@ -4,9 +4,7 @@ let deliveryCharge = 5;
 
 //add to shopping basket
 function addBasket(index) {
-
-    //it is checked whether something already exists, if not, it is added to the basket variable
-    if (basket.length === 0) {
+    if (basket.length === 0) { //it is checked whether something already exists, if not, it is added to the basket variable
         let dish = {
             name: myDishes[index].name,
             price: myDishes[index].price,
@@ -15,19 +13,12 @@ function addBasket(index) {
         basket.push(dish);
         renderFullBasket();
         price();
-        document.getElementById("basket-button").classList.toggle("active", true)
-
-        //is executed when something is already in the basket
-    } else {
-
-        //this checks whether the name is in the basket.name array
-        if (basket.some(dish => dish.name === myDishes[index].name)) {
-            //takes the index from the name array in the basket and saves it to the variable
-            let addBeverage = basket.findIndex(dish => dish.name === myDishes[index].name);
-            basket[addBeverage].amount++; //zählt den amount hoch
-
-            //if the dish does not yet exist, it will be added to the basket
-        } else {
+        document.getElementById("basket-button").classList.toggle("active", true) 
+    } else {//is executed when something is already in the basket
+        if (basket.some(dish => dish.name === myDishes[index].name)) {//this checks whether the name is in the basket.name array
+            let addBeverage = basket.findIndex(dish => dish.name === myDishes[index].name);//takes the index from the name array in the basket and saves it to the variable
+            basket[addBeverage].amount++; //zählt den amount hoch 
+        } else {//if the dish does not yet exist, it will be added to the basket
             let dish = {
                 name: myDishes[index].name,
                 price: myDishes[index].price,

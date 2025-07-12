@@ -102,7 +102,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 }
 
 .main-dish {
@@ -176,11 +175,11 @@ a:hover {
     animation: mymove 4s infinite;
 }
 
+
 @keyframes mymove {
     0% {
         left: 0px;
     }
-
     100% {
         left: calc(90% - 44px);
     }

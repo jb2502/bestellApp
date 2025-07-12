@@ -15,11 +15,7 @@
 </head>
 
 <body id="body-scrollbar">
-
-    <div onclick="closeOverlay()" id="overlay" class="overlay d-none">
-
-    </div>
-
+    <div onclick="closeOverlay()" id="overlay" class="overlay d-none"></div>
     <header onclick="closeBasket()">
         <img src="./assets/img/Bestell App- Logo.svg" alt="Logo">
     </header>
@@ -58,10 +54,10 @@
                         <strong>9,90 €</strong>
                     </div>
                 </div>
-                <div onclick="addBasket(1)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Ramyeon</h3>
-                        <div class="add-basket-icon">
+                        <div onclick="addBasket(1)" class="add-basket-icon">
                             <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
@@ -72,10 +68,10 @@
                         <strong>10,90 €</strong>
                     </div>
                 </div>
-                <div onclick="addBasket(2)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Mandu</h3>
-                        <div class="add-basket-icon">
+                        <div onclick="addBasket(2)" class="add-basket-icon">
                             <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
@@ -86,10 +82,10 @@
                         <strong>5,50 €</strong>
                     </div>
                 </div>
-                <div onclick="addBasket(3)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Rabokki</h3>
-                        <div class="add-basket-icon">
+                        <div onclick="addBasket(3)" class="add-basket-icon">
                             <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
@@ -108,10 +104,10 @@
                 <h3>Getränke</h3>
             </section>
             <section class="main-dishes">
-                <div onclick="addBasket(4)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Sikhye</h3>
-                        <div class="add-basket-icon">
+                        <div onclick="addBasket(4)" class="add-basket-icon">
                             <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
@@ -122,10 +118,10 @@
                         <strong>6,90 €</strong>
                     </div>
                 </div>
-                <div onclick="addBasket(5)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Milkis</h3>
-                        <div class="add-basket-icon">
+                        <div onclick="addBasket(5)" class="add-basket-icon">
                             <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
@@ -136,10 +132,10 @@
                         <strong>4,90 €</strong>
                     </div>
                 </div>
-                <div onclick="addBasket(6)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Soju</h3>
-                        <div class="add-basket-icon">
+                        <div onclick="addBasket(6)" class="add-basket-icon">
                             <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
@@ -150,10 +146,10 @@
                         <strong>5,50 €</strong>
                     </div>
                 </div>
-                <div onclick="addBasket(7)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Makgeolli</h3>
-                        <div class="add-basket-icon">
+                        <div onclick="addBasket(7)" class="add-basket-icon">
                             <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
@@ -165,9 +161,7 @@
                     </div>
                 </div>
             </section>
-
         </div>
-
         <div id="resp-basket" class="basket-wrapper">
             <div class="basket">
                 <div class="basket-headline">
@@ -176,17 +170,13 @@
                 <div id="empty-basket" class="empty-basket">
                     <img src="./assets/icons/shopping_cart_off.svg" alt="off">
                     Dein Warenkorb ist leer.
-                    <div class="basket-down-btn" onclick="closeBasket()"><img style="width: 32px; height: 32px;" src="./assets/icons/arrow_circle_down.svg"
+                    <div class="basket-down-btn" onclick="closeBasket()"><img src="./assets/icons/arrow_circle_down.svg"
                         alt="down"></div>
                 </div>
-                
                 <div id="basket" class="d-none"></div>
-
-
     </main>
     <div onclick="openBasket()" id="basket-button" class="basket-button">Warenkorb</div>
     <footer></footer>
-
     <script src="./scripts/script.js"></script>
 </body>
 
