@@ -2,10 +2,10 @@ let basket = [];
 
 let deliveryCharge = 5;
 
-//warenkorb hinzufügen
+//add to shopping basket
 function addBasket(index) {
 
-    //es wird geschaut, ob schon etwas vorhanden ist, wenn nicht, dann wird es der basket variable hinzugefügt
+    //it is checked whether something already exists, if not, it is added to the basket variable
     if (basket.length === 0) {
         let dish = {
             name: myDishes[index].name,
@@ -14,19 +14,19 @@ function addBasket(index) {
         }
         basket.push(dish);
         renderFullBasket();
-        subTotal();
-        finalPrice();
+        price();
+        document.getElementById("basket-button").classList.toggle("active", true)
 
-        //wird ausgefürht wenn schon etwas im basket drin ist
+        //is executed when something is already in the basket
     } else {
 
-        //hier wird geprüft, ob der name im basket.name-array drin ist
+        //this checks whether the name is in the basket.name array
         if (basket.some(dish => dish.name === myDishes[index].name)) {
-            //zieht sich den index aus dem name-array aus dem basket und speichert ihn der variable
+            //takes the index from the name array in the basket and saves it to the variable
             let addBeverage = basket.findIndex(dish => dish.name === myDishes[index].name);
             basket[addBeverage].amount++; //zählt den amount hoch
 
-            //wenn das dish noch nicht vorhanden ist, dannn wird es dem basket hinzugefügt
+            //if the dish does not yet exist, it will be added to the basket
         } else {
             let dish = {
                 name: myDishes[index].name,
@@ -39,7 +39,7 @@ function addBasket(index) {
     renderBasket();
     price();
 }
-//rendert beim ersten hinzufügen den kompletten warenkorb
+//renders the complete shopping basket the first time it is added
 function renderFullBasket() {
     document.getElementById('empty-basket').classList.add('d-none'); //blendet den leeren warenkorb aus
     let refContentFullBasket = document.getElementById('basket');
@@ -49,7 +49,7 @@ function renderFullBasket() {
     }
 
 }
-//rendert den warenkorb
+//renders the shopping basket
 function renderBasket() {
     let refContentBasket = document.getElementById('added-dish');
     refContentBasket.innerHTML = "";
@@ -57,13 +57,13 @@ function renderBasket() {
         refContentBasket.innerHTML += getTemplateBasket(index)
     }
 }
-//anzahl bestellung vergrößern
+//increase number of orders
 function additionalBasket(basketIndex) {
     basket[basketIndex].amount++;
     renderBasket();
     price();
 }
-//anzahl bestellung verringern
+//reduce number of orders
 function removeBasket(basketIndex) {
     basket[basketIndex].amount--;
     if (basket[basketIndex].amount === 0) {
@@ -76,7 +76,7 @@ function removeBasket(basketIndex) {
     renderBasket();
     price();
 }
-//bestellung löschen
+//delete order
 function deleteBasket(basketIndex) {
     basket.splice(basketIndex, 1)
     if (basket.length === 0) {
@@ -85,7 +85,7 @@ function deleteBasket(basketIndex) {
     renderBasket();
     price();
 }
-//bestellung abschicken
+//send order
 function sendDelivery() {
     while (basket.length > 0) {
         basket.pop();
@@ -96,7 +96,7 @@ function sendDelivery() {
     }
     openOverlay()
 }
-//funktion zum zurückstellen aus leeren warenkorb
+//function to reset from empty shopping basket
 function renderEmptyBasket() {
     let refContentBasket = document.getElementById('added-dish');
     refContentBasket.innerHTML = "";
@@ -104,8 +104,9 @@ function renderEmptyBasket() {
     refContentFullBasket.classList.add('d-none'); //blendet den warenkorb wieder
     refContentFullBasket.innerHTML = "";
     document.getElementById('empty-basket').classList.remove('d-none'); //blendet den leeren warenkorb wieder aus
+    document.getElementById("basket-button").classList.toggle("active", false)
 }
-//führt alle funktionen zur preiserrechnung zusammen
+//determination of the price
 function price() {
     let totalSub = 0;
     for (let index = 0; index < basket.length; index++) {
@@ -120,7 +121,7 @@ function price() {
     let refContentTotal = document.getElementById("final-total");
     refContentTotal.innerHTML = `${finalAmount.toFixed(2).replace(".", ",")} €`;
 }
-//öffnet das overlay
+//opens the overlay
 function openOverlay() {
     let refOverlay = document.getElementById("overlay");
     let hideScrollbar = document.getElementById("body-scrollbar");
@@ -129,7 +130,7 @@ function openOverlay() {
     refOverlay.innerHTML = getOverlayTemplate();
     document.getElementById("resp-basket").classList.toggle("active", false)
 }
-//schließt das overlay
+//closes the overlay
 function closeOverlay() {
     let closeOverlay = document.getElementById("overlay");
     let hideScrollbar = document.getElementById("body-scrollbar");

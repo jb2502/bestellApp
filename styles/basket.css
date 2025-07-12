@@ -119,54 +119,19 @@ button:active {
     width: 100px;
 }
 
-.basket-button {
-    position: fixed;
-    bottom: 100px;
-    left: calc(50% - 200px/2);
-    height: 60px;
-    width: 200px;
-    z-index: 50;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    border-radius: 999px;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: rgba(240, 135, 50, 0.75);
-    /* display: none; */
-}
 
-.basket-button:hover {
-    cursor: pointer;
-}
-
-.basket-button:active {
-    transform: scale3d(0.99, 0.99, 0.99)
-}
-
-.basket-down-btn {
-    padding: 4px;
-    height: 32px;
-    width: 32px;
-}
-
-.basket-down-btn:active {
-    transform: scale3d(0.99, 0.99, 0.99)
-}
 
 @media (min-width: 910px) {
-    .basket-button {
-        display: none;
-    }
-
     .basket-down-btn {
         display: none;
     }
 }
 
 @media (max-width: 910px) {
+    .basket-button.active {
+        display: block;
+    }
+
     .basket-wrapper {
         max-height: 100vh;
         position: fixed;

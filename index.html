@@ -20,7 +20,7 @@
 
     </div>
 
-    <header  onclick="closeBasket()">
+    <header onclick="closeBasket()">
         <img src="./assets/img/Bestell App- Logo.svg" alt="Logo">
     </header>
     <main>
@@ -33,7 +33,7 @@
                 <text>Bewertung (4,6 von 5 Sternen)</text>
             </section>
             <nav class="menu-nav">
-                <img src="./assets/icons/arrow_right.png" alt="Arrow right">
+                <img src="./assets/icons/arrow_right.svg" alt="Arrow right">
                 <a href="#main-dish">Hauptgerichte</a>
                 <a href="#drinks">Getränke</a>
             </nav>
@@ -44,11 +44,11 @@
                 <h3>Hauptgerichte</h3>
             </section>
             <section class="main-dishes">
-                <div onclick="addBasket(0)" class="main-dish">
+                <div class="main-dish">
                     <div class="dish-headline">
                         <h3>Gimbap</h3>
-                        <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                        <div onclick="addBasket(0)" class="add-basket-icon">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -62,7 +62,7 @@
                     <div class="dish-headline">
                         <h3>Ramyeon</h3>
                         <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -76,7 +76,7 @@
                     <div class="dish-headline">
                         <h3>Mandu</h3>
                         <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -90,7 +90,7 @@
                     <div class="dish-headline">
                         <h3>Rabokki</h3>
                         <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -112,7 +112,7 @@
                     <div class="dish-headline">
                         <h3>Sikhye</h3>
                         <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -126,7 +126,7 @@
                     <div class="dish-headline">
                         <h3>Milkis</h3>
                         <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -140,7 +140,7 @@
                     <div class="dish-headline">
                         <h3>Soju</h3>
                         <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -154,7 +154,7 @@
                     <div class="dish-headline">
                         <h3>Makgeolli</h3>
                         <div class="add-basket-icon">
-                            <img src="./assets/icons/shopping_cart.png" alt="add-basket">
+                            <img src="./assets/icons/shopping_cart.svg" alt="add-basket">
                         </div>
                     </div>
                     <div class="dish-ingredients">
@@ -174,14 +174,17 @@
                     <h3>Warenkorb</h3>
                 </div>
                 <div id="empty-basket" class="empty-basket">
-                    <img src="./assets/icons/shopping_cart_off.png" alt="off">
+                    <img src="./assets/icons/shopping_cart_off.svg" alt="off">
                     Dein Warenkorb ist leer.
+                    <div class="basket-down-btn" onclick="closeBasket()"><img style="width: 32px; height: 32px;" src="./assets/icons/arrow_circle_down.svg"
+                        alt="down"></div>
                 </div>
+                
                 <div id="basket" class="d-none"></div>
 
 
     </main>
-    <div onclick="openBasket()" class="basket-button">Warenkorb</div>
+    <div onclick="openBasket()" id="basket-button" class="basket-button">Warenkorb</div>
     <footer></footer>
 
     <script src="./scripts/script.js"></script>
